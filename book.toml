@@ -8,3 +8,9 @@ title = "mdbook-katex Static CSS Example"
 [output.html]
 # …
 additional-css = ["katex.min.css"]
+
+[output.katex]
+
+[preprocessor.katex]
+renderer = ["html"]
+no-css = true
