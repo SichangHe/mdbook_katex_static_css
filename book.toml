@@ -1,0 +1,10 @@
+[book]
+authors = ["Steven Hé (Sīchàng)"]
+language = "en"
+multilingual = false
+src = "src"
+title = "mdbook-katex Static CSS Example"
+
+[output.html]
+# …
+additional-css = ["katex.min.css"]
