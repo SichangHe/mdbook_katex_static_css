@@ -19,6 +19,8 @@ jobs:
       run: |
         mv mdbook_binaries/bin bin
         echo "$(pwd)/bin" >> $GITHUB_PATH
+    - name: Download KaTeX CSS and fonts
+      run: python3 download_static_css.py
     - name: Build
       run: mdbook build
     - name: push
