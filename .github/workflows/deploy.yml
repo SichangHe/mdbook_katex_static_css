@@ -1,0 +1,32 @@
+name: CI
+on: [push, pull_request]
+
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+      with:
+        repo-token: ${{ secrets.GITHUB_TOKEN }}
+    - name: configure git
+      run: |
+        git config --global user.name "SichangHe"
+        git config --global user.email "sichanghe@users.noreply.github.com"
+    - name: pull mdbook build
+      run: git clone https://github.com/SichangHe/mdbook_binaries.git
+    - name: make bin
+      run: |
+        mv mdbook_binaries/bin bin
+        echo "$(pwd)/bin" >> $GITHUB_PATH
+    - name: Build
+      run: mdbook build
+    - name: push
+      run: |
+        git fetch
+        git switch gh-pages
+        rm -rf docs
+        mv book docs
+        git add docs
+        git commit --allow-empty -m "Deploy $GITHUB_SHA to gh-pages"
+        git push -f
