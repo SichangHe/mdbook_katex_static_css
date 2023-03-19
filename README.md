@@ -100,3 +100,10 @@ Build the book using `mdbook build`.
     katex.min.css
     theme/fonts/KaTeX_*.*
     ```
+
+1. (Optional) Set up GitHub CI and GitHub Pages.
+    - Check out `.github/workflows/deploy.yml` for a working example.
+    - To enable Git pushes in CI,
+        go to Settings > Code and automation > Actions > General > Workflow permissions,
+        choose `Read and write permissions`, and save.
+    - To enable GitHub Pages, go to Settings > Code and automation > Pages.

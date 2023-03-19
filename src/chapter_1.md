@@ -9,3 +9,7 @@ Markdown (requires `mdbook-katex`):
 $$
 \oint_C f(x,y)\,\mathrm dA
 $$
+
+Inspect element and use `Sources` tab (under `Debugger` on Firefox) to check
+that all CSS and fonts are properly loaded from GitHub pages instead of
+external CDN.
