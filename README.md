@@ -83,7 +83,7 @@ Build the book using `mdbook build`.
 
 ## Steps for your repository
 
-1. Copy `download_static_css.py` in this repository to the root of your repository.
+1. Copy `download_static_css.py` in this repository to the root of your mdBook project.
 1. Run the above script using Python 3.5 or a higher version to download the
     CSS and fonts.
 1. Include `katex.min.css` as additional CSS in `book.toml`:
@@ -107,3 +107,10 @@ Build the book using `mdbook build`.
         go to Settings > Code and automation > Actions > General > Workflow permissions,
         choose `Read and write permissions`, and save.
     - To enable GitHub Pages, go to Settings > Code and automation > Pages.
+
+## Solution without Python3 using a Rust executable
+
+Replace the first two steps above with:
+
+1. Install [`mdbook_katex_css_download`](https://github.com/SichangHe/mdbook_katex_css_download).
+1. Run the above executable at the root of your mdBook project.
