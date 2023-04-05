@@ -10,4 +10,5 @@ title = "mdbook-katex Static CSS Example"
 additional-css = ["katex.min.css"]
 
 [preprocessor.katex]
+after = ["links"]
 no-css = true
