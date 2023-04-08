@@ -4,7 +4,7 @@ Dim wsh : Set wsh = CreateObject("Wscript.Shell")
 ' download mdbook and mdbook-katex if no executable
 If fso.FileExists("bin/mdbook.exe") AND fso.FileExists("bin/mdbook-katex.exe") Then
 Else
-   wsh.Run "bin\download.cmd" , 0 , 1
+   wsh.Run "download_binaries.cmd" , 0 , 1
 End If
 
 ' download katex theme if not found
