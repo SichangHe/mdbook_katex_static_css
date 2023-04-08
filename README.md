@@ -1,6 +1,6 @@
 # `mdbook-katex` Static CSS Example
 
-## Steps in this repository
+## Steps in this repository using Python3
 
 <details>
 <summary>
@@ -81,7 +81,7 @@ Downloading from https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/fonts/KaTeX_Type
 
 Build the book using `mdbook build`.
 
-## Steps for your repository
+## Steps for your repository using Python3
 
 1. Copy `download_static_css.py` in this repository to the root of your mdBook project.
 1. Run the above script using Python 3.5 or a higher version to download the
@@ -108,9 +108,9 @@ Build the book using `mdbook build`.
         choose `Read and write permissions`, and save.
     - To enable GitHub Pages, go to Settings > Code and automation > Pages.
 
-## Solution without Python3 using a Rust executable
+## Solution using a Rust executable
 
-Replace the first two steps above with:
+Replace the first two steps in [Steps for your repository using Python3](#steps-for-your-repository-using-python3) with:
 
 1. Install [`mdbook_katex_css_download`](https://github.com/SichangHe/mdbook_katex_css_download).
 1. Run the above executable at the root of your mdBook project.
