@@ -6,7 +6,7 @@ Dim fso : Set fso = CreateObject("Scripting.FileSystemObject")
 Dim wsh : Set wsh = CreateObject("Wscript.Shell")
 
     ' Step 1: download katex.min.css
-    wsh.Run "curl " & CDNROOT & CSSPATH & " -O -J -L" , 1 , True
+    wsh.Run "curl " & CDNROOT & CSSPATH & " -O -J -L" , 0 , 1
 
     ' Step 2: list the assets in config.txt
     Dim ColMatch

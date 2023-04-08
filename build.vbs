@@ -1,23 +1,23 @@
-Set fso = CreateObject("Scripting.FileSystemObject")
-folder = fso.GetParentFolderName(Wscript.ScriptFullName)
+Dim fso : Set fso = CreateObject("Scripting.FileSystemObject")
+Dim wsh : Set wsh = CreateObject("Wscript.Shell")
 
 ' download mdbook and mdbook-katex if no executable
-If fso.FileExists("bin\mdbook.exe") AND fso.FileExists("bin\mdbook-katex.exe") Then
+If fso.FileExists("bin/mdbook.exe") AND fso.FileExists("bin/mdbook-katex.exe") Then
 Else
-   result = CreateObject("Wscript.Shell").Run(".\bin\download",1,1)
+   wsh.Run "bin\download.cmd" , 0 , 1
 End If
 
 ' download katex theme if not found
 If fso.FileExists("katex.min.css") Then
 Else
-   result = CreateObject("Wscript.Shell").Run("download_static_css.vbs",1,1)
+   wsh.Run "download_static_css.vbs" , 0 , 1
 End If
 
 ' run mdbook init if no book.toml
 If fso.FileExists("book.toml") Then
 Else
-   result = CreateObject("Wscript.Shell").Run( folder & "/bin/mdbook init" & " --ignore=none --title=''")
+   wsh.Run "bin\mdbook init" & " --ignore=none --title=''" , 1 , 1
 End If
 
 ' build and open book
-result = CreateObject("Wscript.Shell").Run( folder & "/bin/mdbook build" & " --open")
+wsh.Run "bin\mdbook build" & " --open"
