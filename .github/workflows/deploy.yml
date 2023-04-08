@@ -15,10 +15,8 @@ jobs:
         git config --global user.email "sichanghe@users.noreply.github.com"
     - name: pull mdbook build
       run: git clone https://github.com/SichangHe/mdbook_binaries.git
-    - name: make bin
-      run: |
-        mv mdbook_binaries/bin bin
-        echo "$(pwd)/bin" >> $GITHUB_PATH
+    - name: add bin to path
+      run: echo "$(pwd)/mdbook_binaries/bin" >> $GITHUB_PATH
     - name: Download KaTeX CSS and fonts
       run: python3 download_static_css.py
     - name: Build
