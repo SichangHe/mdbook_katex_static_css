@@ -11,7 +11,7 @@ End If
 
 ' download katex theme if not found
 If fso.FileExists("katex.min.css") AND fso.FolderExists("theme/fonts") Then
-   haveCss = True
+   haveCSS = True
 End If
 
 If haveExe AND haveCSS Then
