@@ -40,4 +40,4 @@ Else
 End If
 
 ' build and open book
-result = CreateObject("Wscript.Shell").Run( folder & "/mdbook/mdbook build" & " --open")
+result = CreateObject("Wscript.Shell").Run( folder & "/bin/mdbook build" & " --open")
