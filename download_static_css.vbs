@@ -31,6 +31,10 @@ Dim wsh : Set wsh = CreateObject("Wscript.Shell")
         Set str = Nothing
 
         ' write list to file
+        If fso.FolderExists("bin") Then
+        Else
+           fso.CreateFolder("bin")
+        End If
         Set cfg = fso.OpenTextFile( CFGPATH , 8 , True )
             For each o in colMatch
                 n = Len(o.Value)
