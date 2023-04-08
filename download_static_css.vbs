@@ -43,19 +43,8 @@ Dim wsh : Set wsh = CreateObject("Wscript.Shell")
 
     Set ColMatch = Nothing
 
-    ' Step 3: create folder if it doesn't exist
-    If fso.FolderExists("theme") Then
-       If fso.FolderExists("theme/fonts") Then
-       Else
-          fso.CreateFolder("theme/fonts")
-       End If
-    Else
-       fso.CreateFolder("theme")
-       fso.CreateFolder("theme/fonts")
-    End If
-
-    ' Step 4: download the assets
-    wsh.Run "curl --parallel --config " & CFGPATH , 1 , 1
+    ' Step 3: download the assets
+    wsh.Run "curl --create-dirs --parallel --config " & CFGPATH , 1 , 1
 
 Set wsh = Nothing
 Set fso = Nothing
