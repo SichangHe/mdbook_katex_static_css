@@ -1,6 +1,6 @@
 CDNROOT = "https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/"
 CSSPATH = "katex.min.css"
-CFGPATH = "bin/config.txt"
+CFGPATH = "temp.txt"
 
 Dim fso : Set fso = CreateObject("Scripting.FileSystemObject")
 Dim wsh : Set wsh = CreateObject("Wscript.Shell")
@@ -8,7 +8,7 @@ Dim wsh : Set wsh = CreateObject("Wscript.Shell")
     ' Step 1: download katex.min.css
     wsh.Run "curl " & CDNROOT & CSSPATH & " -O -J -L" , 0 , 1
 
-    ' Step 2: list the assets in config.txt
+    ' Step 2: list the assets in temp.txt
     Dim ColMatch
 
         ' build list of urls to download
@@ -31,10 +31,6 @@ Dim wsh : Set wsh = CreateObject("Wscript.Shell")
         Set str = Nothing
 
         ' write list to file
-        If fso.FolderExists("bin") Then
-        Else
-           fso.CreateFolder("bin")
-        End If
         Set cfg = fso.OpenTextFile( CFGPATH , 8 , True )
             For each o in colMatch
                 n = Len(o.Value)
@@ -49,6 +45,9 @@ Dim wsh : Set wsh = CreateObject("Wscript.Shell")
 
     ' Step 3: download the assets
     wsh.Run "curl --create-dirs --parallel --config " & CFGPATH , 1 , 1
+
+    ' Step 4: delete temp.txt
+    fso.DeleteFile(CFGPATH)
 
 Set wsh = Nothing
 Set fso = Nothing
