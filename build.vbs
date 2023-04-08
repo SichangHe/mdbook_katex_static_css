@@ -2,9 +2,9 @@ Set fso = CreateObject("Scripting.FileSystemObject")
 folder = fso.GetParentFolderName(Wscript.ScriptFullName)
 
 ' download mdbook and mdbook-katex if no executable
-If fso.FileExists("mdbook\mdbook.exe") AND fso.FileExists("mdbook\mdbook-katex.exe") Then
+If fso.FileExists("bin\mdbook.exe") AND fso.FileExists("bin\mdbook-katex.exe") Then
 Else
-   result = CreateObject("Wscript.Shell").Run(".\mdbook\download",1,1)
+   result = CreateObject("Wscript.Shell").Run(".\bin\download",1,1)
 End If
 
 ' download katex theme if not found
@@ -36,7 +36,7 @@ End If
 ' run mdbook init if no book.toml
 If fso.FileExists("book.toml") Then
 Else
-   result = CreateObject("Wscript.Shell").Run( folder & "/mdbook/mdbook init" & " --ignore=none --title=''")
+   result = CreateObject("Wscript.Shell").Run( folder & "/bin/mdbook init" & " --ignore=none --title=''")
 End If
 
 ' build and open book
