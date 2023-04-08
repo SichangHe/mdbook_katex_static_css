@@ -114,3 +114,7 @@ Replace the first two steps above with:
 
 1. Install [`mdbook_katex_css_download`](https://github.com/SichangHe/mdbook_katex_css_download).
 1. Run the above executable at the root of your mdBook project.
+
+## Integrated one-click setup (Windows-only)
+1. Clone the repository on Windows
+2. Run `build.vbs` to build the book. The mdbook and mdbook-katex binaries as well as KaTeX css and fonts will be downloaded automatically if they are not present.
