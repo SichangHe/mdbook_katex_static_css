@@ -8,7 +8,7 @@ Else
 End If
 
 ' download katex theme if not found
-If fso.FileExists("katex.min.css") Then
+If fso.FileExists("katex.min.css") AND fso.FolderExists("theme/fonts") Then
 Else
    wsh.Run "download_static_css.vbs" , 0 , 1
 End If
