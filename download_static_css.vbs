@@ -44,7 +44,7 @@ Function MakeCfg(path)
     Next 
     Set rgx = Nothing
 
-    MakeCfg = txt
+  MakeCfg = txt
 End Function
 
 Sub WriteCfg(path,txt)
