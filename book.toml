@@ -12,3 +12,4 @@ additional-css = ["katex.min.css"]
 [preprocessor.katex]
 after = ["links"]
 no-css = true
+include-src = true
