@@ -2,8 +2,8 @@
 #
 # To get started with mdBook see: https://rust-lang.github.io/mdBook/index.html
 #
-name: Deploy mdBook site to Pages
-on:
+name: CI
+on: [push, pull_request]
   # Runs on pushes targeting the default branch
   push:
     branches: ["main"]
@@ -32,6 +32,8 @@ jobs:
           rustup update
           cargo install mdbook
           cargo install mdbook-katex
+          cargo install mdbook_katex_css_download
+          mdbook_katex_css_download
       - name: Build with mdBook
         run: mdbook build
       - name: Upload artifact
