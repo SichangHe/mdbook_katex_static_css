@@ -27,8 +27,8 @@ jobs:
           rustup update
           cargo install mdbook
           cargo install mdbook-katex
-          cargo install mdbook_katex_css_download
-          mdbook_katex_css_download
+      - name: Download KaTeX CSS and fonts
+        run: python3 download_static_css.py
       - name: Build with mdBook
         run: mdbook build
       - name: Upload artifact
