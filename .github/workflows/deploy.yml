@@ -3,7 +3,11 @@
 # To get started with mdBook see: https://rust-lang.github.io/mdBook/index.html
 #
 name: CI
-on: [push, pull_request, workflow_dispatch]
+on:
+  workflow_dispatch:
+  push:
+    tags: 
+      - '*-publish'
 # Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
 permissions:
   contents: read
