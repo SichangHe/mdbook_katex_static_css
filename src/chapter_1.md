@@ -18,7 +18,7 @@ external CDN.
 $$
 \begin{aligned}
   e^x &= \sum_{n=0}^\infty \frac{x^n}{n!} \implies e^{ix} = \sum_{n=0}^\infty \frac{(ix)^n}{n!} \\
-  \cos x &= \sum_{m=0}^\infty \frac{(-1)^n x^{2m}}{(2m)!} = \sum_{m=0}^\infty \frac{(ix)^{2m}}{(2m)!} \\
+  \cos x &= \sum_{m=0}^\infty \frac{(-1)^m x^{2m}}{(2m)!} = \sum_{m=0}^\infty \frac{(ix)^{2m}}{(2m)!} \\
   \sin x &= \sum_{s=0}^\infty \frac{(-1)^s x^{2s+1}}{(2s+1)!} = \sum_{s=0}^\infty \frac{(ix)^{2s+1}}{i(2s+1)!} \\
   \cos x + i\sin x &= \sum_{l=0}^\infty \frac{(ix)^{2l}}{(2l)!} + \sum_{s=0}^\infty \frac{(ix)^{2s+1}}{(2s+1)!} = \sum_{n=0}^\infty \frac{(ix)^{n}}{n!} \\
          &= e^{ix}
