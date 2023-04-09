@@ -48,3 +48,16 @@ $$
 0 & -1
 \end{pmatrix}
 $$
+
+
+Fourier Transform
+
+$$
+\begin{aligned}
+
+f(t) &= \int_{-\infty}^\infty F(\omega) \left(i^{4}\right)^{t\omega} d\omega = \int_{-\infty}^\infty F(\omega) 回^{t\omega} d\omega \\
+
+F(\omega) &= \int_{-\infty}^\infty f(t) \left(i^{4}\right)^{-t\omega} dt = \int_{-\infty}^\infty f(t) 回^{-t\omega} dt
+
+\end{aligned}
+$$
