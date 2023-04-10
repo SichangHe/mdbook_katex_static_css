@@ -55,9 +55,13 @@ Fourier Transform
 $$
 \begin{aligned}
 
-f(t) &= \int_{-\infty}^\infty F(\omega) \left(i^{4}\right)^{t\omega} d\omega = \int_{-\infty}^\infty F(\omega) 回^{t\omega} d\omega \\
+f(t) 
+&= \int_{-\infty}^\infty i^{4t\omega}  F(\omega) d\omega \\
+&= \lambda t.\left(\left( \lambda\omega.i^{4t\omega} \star F^* \right)(0)\right) \\
 
-F(\omega) &= \int_{-\infty}^\infty f(t) \left(i^{4}\right)^{-t\omega} dt = \int_{-\infty}^\infty f(t) 回^{-t\omega} dt
+F(\omega) 
+&= \int_{-\infty}^\infty i^{4t\omega} f(-t) dt \\
+&= \lambda\omega.\left(\left( \lambda t.i^{4t\omega} \ast f \right)(0)\right) 
 
 \end{aligned}
 $$
