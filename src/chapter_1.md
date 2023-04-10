@@ -14,8 +14,9 @@ Inspect element and use `Sources` tab (under `Debugger` on Firefox) to check
 that all CSS and fonts are properly loaded from GitHub pages instead of
 external CDN.
 
-<details><summary>Proof that $e^{ix} = \cos x + i\sin x$</summary>
-$$
+><details><summary>Proof that $e^{ix} = \cos x + i\sin x$</summary>
+>
+> $$
 \begin{aligned}
   e^x &= \sum_{n=0}^\infty \frac{x^n}{n!} \implies e^{ix} = \sum_{n=0}^\infty \frac{(ix)^n}{n!} \\
   \cos x &= \sum_{m=0}^\infty \frac{(-1)^m x^{2m}}{(2m)!} = \sum_{m=0}^\infty \frac{(ix)^{2m}}{(2m)!} \\
@@ -24,17 +25,18 @@ $$
          &= e^{ix}
 \end{aligned}
 $$
-</details>
-
-
-> Fourier Transform:
 >
-> $$
+> </details>
+
+
+Fourier Transform:
+
+$$
 \begin{aligned}
 
-f(t) &= \int_{-\infty}^\infty i^{4t\omega}  F(\omega) d\omega \\
+f(t) &= \int_{-\infty}^\infty F(\omega) i^{4t\omega} d\omega \\
 
-F(\omega) &= \int_{-\infty}^\infty i^{4t\omega} f(-t) dt
+F(\omega) &= \int_{-\infty}^\infty f(t) i^{-4t\omega} dt
 
 \end{aligned}
 $$
