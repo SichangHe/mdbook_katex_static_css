@@ -26,42 +26,37 @@ $$
 $$
 </details>
 
-The Pauli Matrices are
 
-$$
-\sigma_1 = \begin{pmatrix}
-0 & 1 \\
-1 & 0
-\end{pmatrix}
-$$
+> Fourier Transform:
+>
+> $$
+\begin{aligned}
 
-$$
-\sigma_2 = \begin{pmatrix}
-0 & -i \\
-i & 0
-\end{pmatrix}
-$$
+f(t) &= \int_{-\infty}^\infty i^{4t\omega}  F(\omega) d\omega \\
 
-$$
-\sigma_3 = \begin{pmatrix}
-1 & 0 \\
-0 & -1
-\end{pmatrix}
-$$
+F(\omega) &= \int_{-\infty}^\infty i^{4t\omega} f(-t) dt
+
+\end{aligned}
+> $$
 
 
-Fourier Transform
+Pauli Matrices:
 
 $$
 \begin{aligned}
+\sigma_1 &= \begin{pmatrix}
+0 & 1 \\
+1 & 0
+\end{pmatrix} \\
 
-f(t) 
-&= \int_{-\infty}^\infty i^{4t\omega}  F(\omega) d\omega \\
-&= \lambda t.\left(\left( \lambda\omega.i^{4t\omega} \star F^* \right)(0)\right) \\
+\sigma_2 &= \begin{pmatrix}
+0 & -i \\
+i & 0
+\end{pmatrix} \\
 
-F(\omega) 
-&= \int_{-\infty}^\infty i^{4t\omega} f(-t) dt \\
-&= \lambda\omega.\left(\left( \lambda t.i^{4t\omega} \ast f \right)(0)\right) 
-
+\sigma_3 &= \begin{pmatrix}
+1 & 0 \\
+0 & -1
+\end{pmatrix}
 \end{aligned}
 $$
