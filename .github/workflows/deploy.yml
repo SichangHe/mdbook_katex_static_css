@@ -35,7 +35,7 @@ jobs:
           echo $tag
           url="https://github.com/lzanini/mdbook-katex/releases/download/${tag}/mdbook-katex-${tag}-x86_64-unknown-linux-gnu.tar.gz"
           echo $url
-          curl -o 'mdbook-katex.tar.gz' $url
+          curl -o 'mdbook-katex.tar.gz' -J -L $url
           tar -xzvf 'mdbook-katex.tar.gz' -C 'bin'
       - name: Download KaTeX CSS and fonts
         run: python3 download_static_css.py
