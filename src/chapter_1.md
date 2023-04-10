@@ -37,7 +37,8 @@ f(t) &= \int_{-\infty}^\infty i^{4t\omega}  F(\omega) d\omega \\
 F(\omega) &= \int_{-\infty}^\infty i^{4t\omega} f(-t) dt
 
 \end{aligned}
-> $$
+$$
+
 
 
 Pauli Matrices:
