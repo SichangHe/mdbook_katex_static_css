@@ -1,64 +1,42 @@
-# Sample workflow for building and deploying a mdBook site to GitHub Pages
-#
-# To get started with mdBook see: https://rust-lang.github.io/mdBook/index.html
-#
 name: CI
-on:
-  workflow_dispatch:
-  push:
-    tags: 
-      - '*-publish'
-# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
-permissions:
-  contents: read
-  pages: write
-  id-token: write
-# Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
-# However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
-concurrency:
-  group: "pages"
-  cancel-in-progress: false
+on: [push, pull_request]
 
 jobs:
-  # Build job
   build:
+    name: Build
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - name: Download and extract mdBook
-        run: |
-          tag=$(curl 'https://api.github.com/repos/rust-lang/mdbook/releases/latest' | jq -r '.tag_name')
-          url="https://github.com/rust-lang/mdbook/releases/download/${tag}/mdbook-${tag}-x86_64-unknown-linux-gnu.tar.gz"
-          curl -o 'mdbook.tar.gz' -J -L $url
-          tar -xzvf 'mdbook.tar.gz'
-      - name: Download and extract mdBook-KaTeX
-        run: |
-          tag=$(curl 'https://api.github.com/repos/lzanini/mdbook-katex/releases/latest' | jq -r '.tag_name')
-          url="https://github.com/lzanini/mdbook-katex/releases/download/${tag}/mdbook-katex-${tag}-x86_64-unknown-linux-gnu.tar.gz"
-          curl -o 'mdbook-katex.tar.gz' -J -L $url
-          tar -xzvf 'mdbook-katex.tar.gz'
-      - name: Add current directory to path
-        run: echo "$(pwd)" >> $GITHUB_PATH
-      - name: Download KaTeX CSS and fonts
-        run: python3 download_static_css.py
-      - name: Build with mdBook
-        run: mdbook build
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v1
-        with:
-          path: ./book
-      - name: Setup Pages
-        id: pages
-        uses: actions/configure-pages@v3
-
-  # Deployment job
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
-    needs: build
-    steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v1
+    - uses: actions/checkout@v3
+      with:
+        repo-token: ${{ secrets.GITHUB_TOKEN }}
+    - name: configure git
+      run: |
+        git config --global user.name "_"
+        git config --global user.email "_@users.noreply.github.com"
+    - name: Download and extract mdBook
+      run: |
+        tag=$(curl 'https://api.github.com/repos/rust-lang/mdbook/releases/latest' | jq -r '.tag_name')
+        url="https://github.com/rust-lang/mdbook/releases/download/${tag}/mdbook-${tag}-x86_64-unknown-linux-gnu.tar.gz"
+        curl -o 'mdbook.tar.gz' -J -L $url
+        tar -xzvf 'mdbook.tar.gz'
+    - name: Download and extract mdBook-KaTeX
+      run: |
+        tag=$(curl 'https://api.github.com/repos/lzanini/mdbook-katex/releases/latest' | jq -r '.tag_name')
+        url="https://github.com/lzanini/mdbook-katex/releases/download/${tag}/mdbook-katex-${tag}-x86_64-unknown-linux-gnu.tar.gz"
+        curl -o 'mdbook-katex.tar.gz' -J -L $url
+        tar -xzvf 'mdbook-katex.tar.gz'
+    - name: add bin to path
+      run: echo "$(pwd)" >> $GITHUB_PATH
+    - name: Download KaTeX CSS and fonts
+      run: python3 download_static_css.py
+    - name: Build
+      run: mdbook build
+    - name: push
+      run: |
+        git fetch
+        git switch gh-pages
+        rm -rf docs
+        mv book docs
+        git add docs
+        git commit --allow-empty -m "Deploy $GITHUB_SHA to gh-pages"
+        git push -f
