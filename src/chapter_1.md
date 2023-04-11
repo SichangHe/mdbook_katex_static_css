@@ -14,8 +14,9 @@ Inspect element and use `Sources` tab (under `Debugger` on Firefox) to check
 that all CSS and fonts are properly loaded from GitHub pages instead of
 external CDN.
 
-<details><summary>Proof that $e^{ix} = \cos x + i\sin x$</summary>
-$$
+><details><summary>Proof that $e^{ix} = \cos x + i\sin x$</summary>
+>
+> $$
 \begin{aligned}
   e^x &= \sum_{n=0}^\infty \frac{x^n}{n!} \implies e^{ix} = \sum_{n=0}^\infty \frac{(ix)^n}{n!} \\
   \cos x &= \sum_{m=0}^\infty \frac{(-1)^m x^{2m}}{(2m)!} = \sum_{m=0}^\infty \frac{(ix)^{2m}}{(2m)!} \\
@@ -24,40 +25,41 @@ $$
          &= e^{ix}
 \end{aligned}
 $$
-</details>
-
-The Pauli Matrices are
-
-$$
-\sigma_1 = \begin{pmatrix}
-0 & 1 \\
-1 & 0
-\end{pmatrix}
-$$
-
-$$
-\sigma_2 = \begin{pmatrix}
-0 & -i \\
-i & 0
-\end{pmatrix}
-$$
-
-$$
-\sigma_3 = \begin{pmatrix}
-1 & 0 \\
-0 & -1
-\end{pmatrix}
-$$
+>
+> </details>
 
 
-Fourier Transform
+Fourier Transform:
 
 $$
 \begin{aligned}
 
-f(t) &= \int_{-\infty}^\infty F(\omega) \left(i^{4}\right)^{t\omega} d\omega = \int_{-\infty}^\infty F(\omega) 回^{t\omega} d\omega \\
+f(t) &= \int_{-\infty}^\infty F(\omega) i^{4t\omega} d\omega \\
 
-F(\omega) &= \int_{-\infty}^\infty f(t) \left(i^{4}\right)^{-t\omega} dt = \int_{-\infty}^\infty f(t) 回^{-t\omega} dt
+F(\omega) &= \int_{-\infty}^\infty f(t) i^{-4t\omega} dt
 
+\end{aligned}
+$$
+
+
+
+Pauli Matrices:
+
+$$
+\begin{aligned}
+\sigma_1 &= \begin{pmatrix}
+0 & 1 \\
+1 & 0
+\end{pmatrix} \\
+
+\sigma_2 &= \begin{pmatrix}
+0 & -i \\
+i & 0
+\end{pmatrix} \\
+
+\sigma_3 &= \begin{pmatrix}
+1 & 0 \\
+0 & -1
+\end{pmatrix}
 \end{aligned}
 $$
