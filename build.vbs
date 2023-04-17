@@ -30,7 +30,22 @@ End If
 ' run mdbook init if no book.toml
 If fso.FileExists("book.toml") Then
 Else
-   wsh.Run "bin\mdbook init" & " --ignore=none --title=''" , 1 , 1
+   If fso.FileExists(".gitignore") Then
+      init = "bin\mdbook init --title='' --ignore=none"
+      miss = False
+   Else
+      init = "bin\mdbook init --title='' --ignore=git"
+      miss = True
+   End If
+   wsh.Run init , 1 , 1
+   If miss Then
+      Set cfg = fso.OpenTextFile( ".gitignore" , 8 , True )
+      cfg.WriteLine("bin")
+      cfg.WriteLine("katex.min.css")
+      cfg.WriteLine("theme/fonts/KaTeX_*.*")
+      cfg.Close
+      Set cfg = Nothing
+   End If
 End If
 
 ' build and open book
