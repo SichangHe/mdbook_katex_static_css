@@ -38,6 +38,14 @@ Else
       miss = True
    End If
    wsh.Run init , 1 , 1
+   Set cfg = fso.OpenTextFile( "book.toml" , 8 , True )
+   cfg.WriteLine("[output.html]")
+   cfg.WriteLine("additional-css = [""katex.min.css""]")
+   cfg.WriteLine("[preprocessor.katex]")
+   cfg.WriteLine("after = [""links""]")
+   cfg.WriteLine("no-css = true")
+   cfg.Close
+   Set cfg = Nothing
    If miss Then
       Set cfg = fso.OpenTextFile( ".gitignore" , 8 , True )
       cfg.WriteLine("bin")
