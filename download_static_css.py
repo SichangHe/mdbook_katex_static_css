@@ -6,7 +6,7 @@ from pathlib import Path
 import requests
 
 THEME_PATH = "theme/"
-CDN_ROOT = "https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/"
+CDN_ROOT = "https://cdn.jsdelivr.net/npm/katex@0.18.5/dist/"
 KATEX_CSS_PATH = "katex.min.css"
 
 

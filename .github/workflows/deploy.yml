@@ -11,18 +11,11 @@ jobs:
       run: |
         git config --global user.name "_"
         git config --global user.email "_@users.noreply.github.com"
-    - name: Download and extract mdBook
+    - name: Install mdBook 0.5.4
       run: |
-        tag=$(curl 'https://api.github.com/repos/rust-lang/mdbook/releases/latest' | jq -r '.tag_name')
-        url="https://github.com/rust-lang/mdbook/releases/download/${tag}/mdbook-${tag}-x86_64-unknown-linux-gnu.tar.gz"
-        curl -o 'mdbook.tar.gz' -J -L $url
-        tar -xzvf 'mdbook.tar.gz'
-    - name: Download and extract mdBook-KaTeX
-      run: |
-        tag=$(curl 'https://api.github.com/repos/lzanini/mdbook-katex/releases/latest' | jq -r '.tag_name')
-        url="https://github.com/lzanini/mdbook-katex/releases/download/${tag}/mdbook-katex-${tag}-x86_64-unknown-linux-gnu.tar.gz"
-        curl -o 'mdbook-katex.tar.gz' -J -L $url
-        tar -xzvf 'mdbook-katex.tar.gz'
+        cargo install mdbook --version 0.5.4
+    - name: Install mdBook-KaTeX
+      run: cargo install --git https://github.com/SichangHe/mdbook-katex.git --rev f623f031d705ec96e5f747b8c3a910ef1a32734b --locked
     - name: add bin to path
       run: echo "$(pwd)" >> $GITHUB_PATH
     - name: Download KaTeX CSS and fonts
@@ -30,6 +23,7 @@ jobs:
     - name: Build
       run: mdbook build
     - name: push
+      if: github.event_name == 'push'
       run: |
         git fetch
         git switch gh-pages

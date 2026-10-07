@@ -1,5 +1,5 @@
 Option Explicit
-Dim CDNROOT : CDNROOT = "https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/"
+Dim CDNROOT : CDNROOT = "https://cdn.jsdelivr.net/npm/katex@0.18.5/dist/"
 Dim CSSPATH : CSSPATH = "katex.min.css"
 Dim CFGPATH : CFGPATH = "temp.txt"
 

@@ -1,4 +1,5 @@
 # `mdbook-katex` Static CSS Example
+(authored by human unless marked 🤖)
 
 ## Steps in this repository using Python3
 
@@ -7,6 +8,9 @@
 Download CSS and fonts by running the Python script download_static_css.py
 at the root of this repository.
 </summary>
+
+🤖 The output below is a historical example from KaTeX 0.12.0. The script now
+downloads KaTeX 0.18.5.
 
 Python 3.5 or higher version is required.
 
@@ -118,7 +122,9 @@ Replace the first two steps in [Steps for your repository using Python3](#steps-
 ## Windows setup using VBScript
 
 1. Clone the repository on Windows
+1. 🤖 Install Rust and Cargo so `download_binaries.cmd` can build `mdbook-katex`
+   from the pinned Git revision.
 1. Run `build.vbs` to build the book.
-    It downloads these automatically if they are not present:
-    - The mdbook and `mdbook-katex` binary executables.
+    It downloads mdBook 0.5.4 and installs `mdbook-katex` from the pinned
+    Git revision if the executables are not present:
     - KaTeX CSS and fonts.
