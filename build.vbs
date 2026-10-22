@@ -46,6 +46,7 @@ Else
    Dim cfg : Set cfg = fso.OpenTextFile( "book.toml" , 8 , True )
    cfg.WriteLine("[output.html]")
    cfg.WriteLine("additional-css = [""katex.min.css""]")
+   cfg.WriteLine("hash-files = false")
    cfg.WriteLine("[preprocessor.katex]")
    cfg.WriteLine("after = [""links""]")
    cfg.WriteLine("no-css = true")

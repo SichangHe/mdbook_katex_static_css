@@ -99,7 +99,7 @@ Build the book using `mdbook build`.
     hash-files = false
     ```
 
-    🤖 Recent mdBook versions hash static filenames by default. Disable hashing
+    Recent mdBook versions hash static filenames by default. Disable hashing
     so the font filenames still match the URLs in `katex.min.css`.
 
 1. (Optional) ignore the KaTeX CSS and fonts in `.gitignore`:
