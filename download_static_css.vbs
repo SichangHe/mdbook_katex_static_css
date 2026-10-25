@@ -1,5 +1,6 @@
 Option Explicit
-Dim CDNROOT : CDNROOT = "https://cdn.jsdelivr.net/npm/katex@0.18.5/dist/"
+' 🧑 “When self-hosting, some math is rendered incorrectly.” (mdbook-katex#139)
+Dim CDNROOT : CDNROOT = "https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/"
 Dim CSSPATH : CSSPATH = "katex.min.css"
 Dim CFGPATH : CFGPATH = "temp.txt"
 
