@@ -10,7 +10,8 @@ at the root of this repository.
 </summary>
 
 🤖 The output below is a historical example from KaTeX 0.12.0. The script now
-downloads KaTeX 0.18.5.
+downloads KaTeX 0.16.4 to match the renderer bundled with mdbook-katex.
+The CSS and renderer versions must match; newer CSS can break formula layout.
 
 Python 3.5 or higher version is required.
 
