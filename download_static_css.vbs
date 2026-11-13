@@ -1,6 +1,9 @@
 Option Explicit
 ' 🧑 “When self-hosting, some math is rendered incorrectly.” (mdbook-katex#139)
-Dim CDNROOT : CDNROOT = "https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/"
+Dim env : Set env = CreateObject("WScript.Shell").Environment("PROCESS")
+Dim version : version = env("KATEX_VERSION")
+If version = "" Then version = "0.16.4"
+Dim CDNROOT : CDNROOT = "https://cdn.jsdelivr.net/npm/katex@" & version & "/dist/"
 Dim CSSPATH : CSSPATH = "katex.min.css"
 Dim CFGPATH : CFGPATH = "temp.txt"
 

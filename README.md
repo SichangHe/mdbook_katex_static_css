@@ -10,8 +10,13 @@ at the root of this repository.
 </summary>
 
 🤖 The output below is a historical example from KaTeX 0.12.0. The script now
-downloads KaTeX 0.16.4 to match the renderer bundled with mdbook-katex.
-The CSS and renderer versions must match; newer CSS can break formula layout.
+downloads KaTeX 0.16.4 by default for the released mdbook-katex.
+The CSS and renderer versions must match. For the katex-rs migration,
+set `KATEX_VERSION=0.18.5` before running either download script.
+On Unix, run `KATEX_VERSION=0.18.5 python3 download_static_css.py`.
+On Windows Command Prompt, run `set KATEX_VERSION=0.18.5`, then
+`cscript download_static_css.vbs` to replace existing assets before `build.vbs`.
+Rerun the downloader when changing renderer versions to replace both CSS and fonts.
 
 Python 3.5 or higher version is required.
 

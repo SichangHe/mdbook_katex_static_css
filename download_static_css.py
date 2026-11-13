@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 # Python 3.5 or above required.
+import os
 import re
 from pathlib import Path
 
@@ -7,7 +8,8 @@ import requests
 
 THEME_PATH = "theme/"
 # 🧑 “When self-hosting, some math is rendered incorrectly.” (mdbook-katex#139)
-CDN_ROOT = "https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/"
+KATEX_VERSION = os.environ.get("KATEX_VERSION", "0.16.4")
+CDN_ROOT = "https://cdn.jsdelivr.net/npm/katex@{}/dist/".format(KATEX_VERSION)
 KATEX_CSS_PATH = "katex.min.css"
 
 
